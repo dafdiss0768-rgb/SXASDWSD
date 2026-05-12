@@ -1,7 +1,11 @@
-window.addEventListener("load", function() {
-  document.querySelector(".hero").classList.add("show");
+window.addEventListener("load", function () {
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    hero.classList.add("show");
+  }
 });
 
+// ================= DATE & TIME =================
 function updateDateTime() {
   const date = new Date();
 
@@ -17,8 +21,8 @@ function updateDateTime() {
 
   // ===== TANGGAL =====
   const months = [
-    "JAN","FEB","MAR","APR","MAY","JUN",
-    "JUL","AUG","SEP","OCT","NOV","DEC"
+    "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
   ];
 
   const day = String(date.getDate()).padStart(2, "0");
@@ -34,11 +38,14 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
+
+// ================= REVEAL SECTION =================
 const sections = document.querySelectorAll(".stack-section");
 
 function revealSections() {
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
+
     if (rect.top <= window.innerHeight * 0.7) {
       section.classList.add("active");
     }
@@ -49,81 +56,85 @@ window.addEventListener("scroll", revealSections);
 revealSections();
 
 
-// ================= SMOOTH SCROLL =================
-let current = 0;
-let target = 0;
-let ease = 0.08;
+// ================= LENIS SMOOTH SCROLL =================
+if (typeof Lenis !== "undefined") {
+  const lenis = new Lenis({
+    duration: 1.2,
+    smoothWheel: true,
+    smoothTouch: true
+  });
 
-function smoothScroll() {
-  target = window.scrollY;
-  current += (target - current) * ease;
-  window.scrollTo(0, current);
-  requestAnimationFrame(smoothScroll);
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
 }
 
-smoothScroll();
 
-
-// ================= BLUR EFFECT =================
 // ================= BLUR EFFECT =================
 const section1 = document.querySelector(".section1");
 const section2 = document.querySelector(".section2");
 
-window.addEventListener("scroll", () => {
-  const rect = section2.getBoundingClientRect();
-  const progress = 1 - rect.top / window.innerHeight;
+if (section1 && section2) {
+  window.addEventListener("scroll", () => {
 
-  if (progress > 0) {
-    const hero = section1.querySelector(".hero");
-    const title = section1.querySelector(".main-title");
+    const rect = section2.getBoundingClientRect();
+    const progress = 1 - rect.top / window.innerHeight;
 
-    // SAMAKAN TRANSITION
-    hero.style.transition = "all .2s ease";
-    title.style.transition = "all .2s ease";
+    if (progress > 0) {
 
-    const blurValue = progress * 25;
-    const scaleValue = 1 - progress * 0.05;
-    const opacityValue = 1 - progress;
+      const hero = section1.querySelector(".hero");
+      const title = section1.querySelector(".main-title");
 
-    hero.style.filter = `blur(${blurValue}px)`;
-    hero.style.opacity = opacityValue;
-    hero.style.transform = `scale(${scaleValue})`;
+      const blurValue = progress * 25;
+      const scaleValue = 1 - progress * 0.05;
+      const opacityValue = 1 - progress;
 
-    title.style.filter = `blur(${blurValue}px)`;
-    title.style.opacity = opacityValue;
-    title.style.transform = `scale(${scaleValue})`;
-  }
-});
+      // ===== HERO =====
+      if (hero) {
+        hero.style.transition = "all .2s ease";
+        hero.style.filter = `blur(${blurValue}px)`;
+        hero.style.opacity = opacityValue;
+        hero.style.transform = `scale(${scaleValue})`;
+      }
 
-const lenis = new Lenis({
-  duration: 1.2,
-  smooth: true
-})
-
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
+      // ===== TITLE =====
+      if (title) {
+        title.style.transition = "all .2s ease";
+        title.style.filter = `blur(${blurValue}px)`;
+        title.style.opacity = opacityValue;
+        title.style.transform = `scale(${scaleValue})`;
+      }
+    }
+  });
 }
 
-requestAnimationFrame(raf)
 
-const maxScroll = 600; // seberapa banyak scroll untuk full effect
+// ================= BACKGROUND TRANSITION =================
+const maxScroll = 600;
 
-window.addEventListener('scroll', () => {
-  const sectionTop = section2.offsetTop;
-  const scrollY = window.scrollY;
+if (section2) {
+  window.addEventListener("scroll", () => {
 
-  // Hitung seberapa banyak user scroll di dalam section2
-  let scrollFraction = (scrollY + window.innerHeight - sectionTop) / maxScroll;
+    const sectionTop = section2.offsetTop;
+    const scrollY = window.scrollY;
 
-  // Batasi antara 0 - 1
-  scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
+    let scrollFraction =
+      (scrollY + window.innerHeight - sectionTop) / maxScroll;
 
-  // Interpolasi warna putih -> hitam
-  const colorValue = Math.round(255 * (1 - scrollFraction));
+    // batas 0 - 1
+    scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
 
-  section2.style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+    // putih -> hitam
+    const colorValue = Math.round(255 * (1 - scrollFraction));
 
-  // Teks kontras
-  section2.style.color = colorValue < 128 ? 'white' : 'black';
-});
+    section2.style.backgroundColor =
+      `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+
+    // warna text otomatis
+    section2.style.color =
+      colorValue < 128 ? "white" : "black";
+  });
+}
