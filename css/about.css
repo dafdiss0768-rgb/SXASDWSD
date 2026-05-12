@@ -1,0 +1,136 @@
+.section2{
+  background:#f4f4f1;
+  padding:100px 0 810px 0; /* cukup normal */
+  overflow:visible; /* ❌ ubah dari hidden jadi visible */
+  text-align:center;
+  transition: background 0.5s, color 0.5s;
+  color:#000;
+  position: relative; /* supaya overlay aman */
+}
+
+.section2 .section-subtitle{
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.section2 .section-subtitle span{
+  font-weight: 600;
+  color: #ff4c60; /* warna aksen */
+}
+
+.scroll-wrapper{
+  position: relative;
+  height: 400px; /* tinggi visual scroll */
+  overflow:hidden; /* supaya scroll horizontal tetap rapi */
+}
+
+.section2.dark-theme{
+  background:#111;
+  color:#fff;
+}
+
+.section2.dark-theme .section-subtitle{
+  color:#ccc;
+}
+
+.section-text{
+  margin-bottom:60px;
+}
+
+.scroll-row{
+  overflow:hidden;
+  margin-bottom:80px;
+}
+
+.scroll-track{
+  display:flex;
+  gap:60px;
+  will-change: transform;
+}
+
+.track-left{
+  justify-content:flex-start;
+  flex-shrink:0;
+}
+
+.track-right{
+  justify-content:flex-end;
+  flex-shrink:0;
+}
+
+.project{
+  min-width:600px;
+  flex-shrink:0;
+}
+
+.project img{
+  width:600px;
+  height:300px;
+  object-fit:cover;
+  border-radius:20px;
+  transition:.5s;
+  filter:grayscale(100%);
+}
+
+.project:hover img{
+  filter:grayscale(0%);
+  transform:scale(1.05);
+}
+
+@media(max-width:1000px){
+
+  .section2{
+    padding:60px 0 10px;
+  }
+
+  .section-text{
+    margin-bottom:30px;
+    padding:0 20px;
+  }
+
+  .section2 .section-subtitle{
+    font-size:16px;
+    line-height:1.6;
+  }
+
+  /* WRAPPER */
+  .scroll-wrapper{
+    height:auto; /* ⬅️ penting, jangan fix height di mobile */
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:10px 0;
+  }
+
+  /* ROW */
+  .scroll-row{
+    margin-bottom:40px;
+  }
+
+  /* TRACK */
+  .scroll-track{
+    gap:20px;
+    padding:0 20px;
+  }
+
+  /* PROJECT CARD */
+  .project{
+    min-width:75vw; /* ⬅️ biar pas di layar */
+  }
+
+  .project img{
+    width:100%;
+    height:200px;
+    border-radius:14px;
+  }
+
+  /* MATIKAN HOVER (biar nggak bug di HP) */
+  .project:hover img{
+    transform:none;
+    filter:grayscale(0%);
+  }
+
+}

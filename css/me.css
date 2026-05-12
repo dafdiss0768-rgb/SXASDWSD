@@ -1,0 +1,229 @@
+/* ABOUT SECTION */
+.about-me-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #0d0d0d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 8%;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* CONTAINER */
+.about-container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* LEFT */
+.about-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* IMAGE BOX */
+.about-image-wrapper {
+  position: relative;
+  width: 380px;
+  height: 500px;
+}
+
+/* MAIN IMAGE */
+.about-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  transition: 0.6s ease;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* CLONE IMAGE */
+.about-image.clone1,
+.about-image.clone2 {
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* IMAGE STYLE */
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HOVER EFFECT */
+.about-image-wrapper.active .main-image {
+  transform: translate(0,0) rotate(0deg);
+}
+
+.about-image-wrapper.active .clone1 {
+  transform: translate(-45px, 20px) rotate(-10deg);
+  opacity: 0.6;
+}
+
+.about-image-wrapper.active .clone2 {
+  transform: translate(45px, -20px) rotate(10deg);
+  opacity: 0.6;
+}
+
+/* GLOW */
+.about-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139,92,246,0.3),
+    transparent
+  );
+  z-index: 2;
+}
+
+/* RIGHT */
+.about-right {
+  flex: 1;
+}
+
+/* TAG */
+.about-tag {
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+/* TITLE */
+.about-title {
+  font-size: 55px;
+  line-height: 1.1;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  color: white;
+}
+
+/* DESC */
+.about-desc {
+  font-size: 17px;
+  color: #b3b3b3;
+  line-height: 1.9;
+  margin-bottom: 40px;
+}
+
+/* CARDS */
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* CARD */
+.about-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 20px;
+  min-width: 180px;
+  transition: 0.4s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  border-color: #555;
+}
+
+/* CARD TITLE */
+.about-card h3 {
+  font-size: 35px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* CARD TEXT */
+.about-card p {
+  color: #ccc;
+  font-size: 15px;
+}
+
+/* BUTTON */
+.about-btn {
+  display: inline-block;
+  padding: 16px 35px;
+  border-radius: 50px;
+  background: #555;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.4s ease;
+}
+
+.about-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px #fff;
+}
+
+/* =========================
+   FIX MOBILE FOTO ONLY
+========================= */
+
+@media (max-width: 600px) {
+
+  /* WRAPPER FOTO */
+  .about-image-wrapper {
+    width: 100%;
+    max-width: 280px;
+    height: 360px;
+    margin: auto;
+  }
+
+  /* FOTO */
+  .about-image {
+    border-radius: 22px;
+  }
+
+  /* BIAR FOTO GA KEPOTONG */
+  .about-image img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* EFEK 3 FOTO MOBILE */
+  .about-image-wrapper.active .clone1 {
+    transform: translate(-15px, 10px) rotate(-5deg);
+    opacity: 0.5;
+  }
+
+  .about-image-wrapper.active .clone2 {
+    transform: translate(15px, -10px) rotate(5deg);
+    opacity: 0.5;
+  }
+
+}
+
+/* EXTRA SMALL DEVICE */
+@media (max-width: 400px) {
+
+  .about-image-wrapper {
+    max-width: 240px;
+    height: 320px;
+  }
+
+}       

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio Hero</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/nama.css">
+  <link rel="stylesheet" href="./css/about.css">
+  <link rel="stylesheet" href="./css/dark.css">
+  <link rel="stylesheet" href="./css/navbarw.css">
+  <link rel="stylesheet" href="./css/service.css">
+  <link rel="stylesheet" href="./css/me.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="navbar-logo">
+      <span class="star"></span>
+    </div>
+
+    <div class="navbar-menu" id="navbarMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#project">Project</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </nav>
+
+  <!-- SECTION HOME -->
+  <section class="stack-section section1" id="home">
+
+    <h1 class="main-title">DAFFRIZAL*</h1>
+
+    <section class="hero">
+
+      <div class="hero-left">
+        <p class="section-subtitle">
+          Seorang fullstack developer yang menggabungkan kreativitas dan teknologi mutakhir untuk menciptakan pengalaman
+          digital yang mengangkat brand Anda dan mendorong kesuksesan.
+        </p>
+
+        <a href="#" class="btn">
+          GET IN TOUCH
+        </a>
+      </div>
+
+      <div class="hero-image">
+        <img src="img/12.png" alt="Profile">
+      </div>
+
+      <div class="hero-right">
+
+        <span>LET'S BUILD SOMETHING GREAT</span>
+
+        <h2 id="timeText"></h2>
+        <h1 id="dateText"></h1>
+
+      </div>
+
+    </section>
+
+  </section>
+
+  <!-- SECTION PROJECT SCROLL -->
+  <section class="stack-section section2">
+
+    <div class="scroll-row row-left">
+      <div class="scroll-track track-left">
+
+        <div class="project">
+          <img src="img/1.png">
+        </div>
+
+        <div class="project">
+          <img src="img/2.png">
+        </div>
+
+        <div class="project">
+          <img src="img/3.png">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-row row-right">
+      <div class="scroll-track track-right">
+
+        <div class="project">
+          <img src="img/2.png">
+        </div>
+
+        <div class="project">
+          <img src="img/3.png">
+        </div>
+
+        <div class="project">
+          <img src="img/1.png">
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="about-me-section" id="about">
+
+    <div class="about-container">
+
+      <!-- LEFT -->
+      <div class="about-left">
+
+        <div class="about-image-wrapper">
+
+          <!-- MAIN -->
+          <div class="about-image main-image">
+            <img src="img/12.png" alt="About Me">
+          </div>
+
+          <!-- CLONE 1 -->
+          <div class="about-image clone1">
+            <img src="img/12.png" alt="About Me">
+          </div>
+
+          <!-- CLONE 2 -->
+          <div class="about-image clone2">
+            <img src="img/12.png" alt="About Me">
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="about-right">
+
+        <span class="about-tag">
+          ABOUT ME
+        </span>
+
+        <h2 class="about-title">
+          Menciptakan Pengalaman Digital
+          Modern & Elegan
+        </h2>
+
+        <p class="about-desc">
+          Saya adalah seorang Fullstack Developer dan UI Designer
+          yang berfokus pada pembuatan website modern, responsif,
+          dan interaktif dengan kombinasi kreativitas serta teknologi terbaru.
+        </p>
+
+        <!-- BUTTON -->
+        <a href="#" class="about-btn">
+          DOWNLOAD CV
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ <!-- GRID PROJECT SECTION -->
+<section class="grid-project-section" id="project">
+
+  <!-- LEFT -->
+  <div class="grid-project-left">
+
+    <span class="project-tag">
+      MY PROJECTS
+    </span>
+
+    <h2>
+      Selected <br>
+      Creative Works
+    </h2>
+
+    <p>
+      Kumpulan project pilihan dengan desain modern,
+      smooth, dan interaktif.
+    </p>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="grid-project-right">
+
+    <!-- CARD -->
+    <div class="grid-project-card active">
+
+      <img src="img/1.png">
+
+      <div class="grid-project-content">
+        <span>WEB DESIGN</span>
+        <h3>Modern Portfolio</h3>
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="grid-project-card">
+
+      <img src="img/2.png">
+
+      <div class="grid-project-content">
+        <span>UI DESIGN</span>
+        <h3>Creative Landing</h3>
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="grid-project-card">
+
+      <img src="img/3.png">
+
+      <div class="grid-project-content">
+        <span>FULLSTACK</span>
+        <h3>Interactive Dashboard</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.5/bundled/lenis.min.js"></script>
+
+  <script src="./js/nama.js"></script>
+  <script src="./js/about.js"></script>
+  <script src="./js/dark.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/navbarw.js"></script>
+  <script src="./js/service.js"></script>
+  <script src="./js/me.js"></script>
+
+</body>
+</html>
